@@ -5,7 +5,7 @@ def square_inches(file):
     with open('inp0') as f:
         for line in f:
             match = re.match(r'#(?P<id>\d+) @ (?P<x>\d+),(?P<y>\d+): (?P<w>\d+)x(?P<h>\d+)', line).groupdict()
-            matches.append({k: int(v) for k, v in match.iteritems()})
+            matches.append({k: int(v) for k, v in match.items()})
 
     fabric = []
     for y in range(1000):
@@ -19,12 +19,12 @@ def square_inches(file):
                 fabric[y][x][0] += 1
                 fabric[y][x][1].add(k['id'])
 
-    overlap = 0
-    for y in fabric:
-        for x in y:
-            if x[0] > 1:
-                overlap += 1
-    print(overlap)
+        overlap = 0
+        for y in fabric:
+            for x in y:
+                if x[0] > 1:
+                    overlap += 1
+        print(overlap)
 
     for k in matches:
         intact = True
@@ -43,7 +43,7 @@ def square_inches_v2(file):
     with open(file) as f:
         for line in f:
             match = re.match(r'#(?P<id>\d+) @ (?P<x>\d+),(?P<y>\d+): (?P<w>\d+)x(?P<h>\d+)', line).groupdict()
-            matches.append({k: int(v) for k, v in match.iteritems()})
+            matches.append({k: int(v) for k, v in match.items()})
 
     sum_fabric = 0
     for idx_m in range(len(matches)):
