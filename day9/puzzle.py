@@ -15,6 +15,7 @@ def play_game(nplayers, marbles):
     circle = deque([0])
 
     for marble in range(1, marbles + 1):
+        print(circle)
         if marble % 23 == 0:
             rotateR(circle, 7)
             scores[marble % nplayers] += marble + circle.pop()
@@ -25,6 +26,6 @@ def play_game(nplayers, marbles):
 
     return max(scores.values())
 
-#print(play_game(9, 25))
-print(play_game(405,70953))
+print(play_game(9, 25))
+#print(play_game(405,70953))
 #print(play_game(405,70953 * 100))
